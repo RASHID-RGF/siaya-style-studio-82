@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, ShoppingBag, User, Menu, X, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -8,6 +8,8 @@ import { cn } from '@/lib/utils';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Shop', path: '/shop' },
+  { name: 'About', path: '/about' },
+  { name: 'Blog', path: '/blog' },
   { name: 'Ladies', path: '/shop?category=ladies' },
   { name: 'Men', path: '/shop?category=men' },
   { name: 'Accessories', path: '/shop?category=accessories' },
@@ -16,8 +18,27 @@ const navLinks = [
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [displayText, setDisplayText] = useState('');
+  const [showCursor, setShowCursor] = useState(true);
   const { itemCount } = useCart();
   const location = useLocation();
+
+  const fullText = 'LEGRAND CLASSIC COLLECTION';
+
+  useEffect(() => {
+    let index = 0;
+    const timer = setInterval(() => {
+      if (index < fullText.length) {
+        setDisplayText(fullText.slice(0, index + 1));
+        index++;
+      } else {
+        clearInterval(timer);
+        setShowCursor(false);
+      }
+    }, 150);
+
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 glass-strong">
@@ -34,8 +55,10 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <h1 className="font-display text-xl lg:text-2xl font-bold tracking-tight">
-              <span className="text-gradient">Siaya</span>
-              <span className="text-foreground"> Boutique</span>
+              <span className="text-gradient">{displayText}</span>
+              {showCursor && displayText === fullText && (
+                <span className="text-primary animate-pulse">|</span>
+              )}
             </h1>
           </Link>
 

@@ -8,7 +8,7 @@ export function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/_.jpeg"
+          src="/modern.jpeg"
           alt="Fashion"
           className="w-full h-full object-cover"
         />
@@ -22,14 +22,15 @@ export function HeroSection() {
             New Season Collection
           </span>
           
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground leading-tight mb-6">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground leading-tight mb-6 hover:text-terracotta-light transition-colors duration-300 cursor-pointer">
             Elevate Your
             <span className="block text-terracotta-light">Style Story</span>
           </h1>
-          
+
           <p className="text-lg text-primary-foreground/80 mb-8 max-w-lg">
-            Discover curated fashion pieces that celebrate modern elegance. 
-            Quality craftsmanship meets contemporary African style.
+            Discover curated fashion pieces that celebrate modern elegance and timeless sophistication.
+            Our collection features premium quality craftsmanship that blends contemporary African style with global fashion trends.
+            From elegant maxi dresses to versatile unisex wear, find your perfect expression of style.
           </p>
           
           <div className="flex flex-wrap gap-4">

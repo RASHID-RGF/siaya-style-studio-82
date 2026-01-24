@@ -222,7 +222,7 @@ const Shop = () => {
                 {filteredProducts.map((product, index) => (
                   <div
                     key={product.id}
-                    className="animate-fade-up"
+                    className={selectedCategory === 'ladies' ? 'animate-slide-in' : 'animate-fade-up'}
                     style={{ animationDelay: `${index * 0.05}s`, opacity: 0 }}
                   >
                     <ProductCard product={product} />
