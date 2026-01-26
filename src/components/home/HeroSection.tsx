@@ -8,7 +8,7 @@ export function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/modern.jpeg"
+          src="/print.jpeg"
           alt="Fashion"
           className="w-full h-full object-cover"
         />

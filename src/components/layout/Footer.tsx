@@ -9,10 +9,10 @@ export function Footer() {
           {/* Brand */}
           <div>
             <h2 className="font-display text-2xl font-bold mb-4">
-              <span className="text-terracotta-light">Siaya</span> Boutique
+              <span className="text-terracotta-light">LEGRAND</span> CLASSIC COLLECTION
             </h2>
             <p className="text-primary-foreground/70 text-sm mb-4">
-              Your premier destination for modern fashion in Siaya County. 
+              Your premier destination for modern fashion in Siaya County.
               Quality meets elegance.
             </p>
             <div className="flex gap-3">
@@ -53,11 +53,11 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-primary-foreground/70">
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
-                <span>Main Street, Siaya Town<br />Siaya County, Kenya</span>
+                <span>Opposite Siaya GK Prison<br />Siaya, on your way to Bondo</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 shrink-0" />
-                <span>+254 700 123 456</span>
+                <span>+254 723 865 139</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0" />
@@ -68,7 +68,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/10 mt-10 pt-6 text-center text-sm text-primary-foreground/50">
-          <p>© 2024 Siaya Boutique. All rights reserved.</p>
+          <p>© 2024 LEGRAND CLASSIC COLLECTION. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -25,6 +25,30 @@ const testimonials = [
     text: 'I love how they blend modern fashion with our local style. Highly recommend!',
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100',
   },
+  {
+    id: 4,
+    name: 'Peter Oduya',
+    location: 'Alego',
+    rating: 5,
+    text: 'Amazing collection of traditional and contemporary wear. Perfect for any occasion!',
+    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100',
+  },
+  {
+    id: 5,
+    name: 'Grace Achieng',
+    location: 'Rarieda',
+    rating: 5,
+    text: 'The tailoring is impeccable and the fabrics are top-notch. Will definitely shop here again.',
+    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100',
+  },
+  {
+    id: 6,
+    name: 'David Okoth',
+    location: 'Gem',
+    rating: 5,
+    text: 'Great variety and excellent service. They have something for everyone in the family.',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100',
+  },
 ];
 
 export function TestimonialsSection() {

@@ -14,6 +14,8 @@ const tabs = [
 
 const Account = () => {
   const [activeTab, setActiveTab] = useState('profile');
+  // Google auth removed — no user state here
+  const user = null;
 
   return (
     <Layout>
@@ -31,7 +33,7 @@ const Account = () => {
                   <User className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <p className="font-medium">Welcome!</p>
+                  <p className="font-medium">Welcome, Guest!</p>
                   <p className="text-sm text-muted-foreground">Guest User</p>
                 </div>
               </div>
@@ -55,10 +57,7 @@ const Account = () => {
                     </button>
                   );
                 })}
-                <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-destructive hover:bg-destructive/10 transition-colors">
-                  <LogOut className="h-4 w-4" />
-                  Sign Out
-                </button>
+                {/* No sign-out available — auth removed */}
               </nav>
             </div>
           </div>
@@ -70,13 +69,18 @@ const Account = () => {
                 <div className="animate-fade-in">
                   <h2 className="font-display text-xl font-semibold mb-6">Profile Information</h2>
                   <div className="max-w-md space-y-6">
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                        <User className="h-8 w-8 text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-lg">Guest</p>
+                        <p className="text-sm text-muted-foreground">guest@local</p>
+                      </div>
+                    </div>
                     <p className="text-muted-foreground">
                       Sign in to manage your profile, track orders, and save your favorites.
                     </p>
-                    <div className="flex gap-4">
-                      <Button variant="hero" size="lg">Sign In</Button>
-                      <Button variant="outline" size="lg">Create Account</Button>
-                    </div>
                   </div>
                 </div>
               )}
