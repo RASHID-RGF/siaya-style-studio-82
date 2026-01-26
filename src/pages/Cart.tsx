@@ -142,10 +142,12 @@ const Cart = () => {
                 </div>
               </div>
 
-              <Button variant="hero" size="lg" className="w-full mt-6 group">
-                Proceed to Checkout
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
+              <Link to="/checkout">
+                <Button variant="hero" size="lg" className="w-full mt-6 group">
+                  Proceed to Checkout
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
 
               <Link to="/shop" className="block mt-4">
                 <Button variant="ghost" className="w-full">
