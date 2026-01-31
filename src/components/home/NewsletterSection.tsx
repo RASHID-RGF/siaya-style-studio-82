@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Mail } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export function NewsletterSection() {
   const [email, setEmail] = useState('');
@@ -19,11 +20,23 @@ export function NewsletterSection() {
   return (
     <section className="py-16 lg:py-24 bg-secondary/30">
       <div className="container">
-        <div className="max-w-2xl mx-auto text-center">
+        <motion.div 
+          className="max-w-2xl mx-auto text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="mb-8">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <motion.div 
+              className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", delay: 0.2 }}
+            >
               <Mail className="h-8 w-8 text-primary" />
-            </div>
+            </motion.div>
             <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
               Stay in Style
             </h2>
@@ -33,7 +46,14 @@ export function NewsletterSection() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <motion.form 
+            onSubmit={handleSubmit} 
+            className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
             <Input
               type="email"
               placeholder="Enter your email"
@@ -42,22 +62,32 @@ export function NewsletterSection() {
               className="flex-1"
               required
             />
-            <Button type="submit" className="sm:w-auto">
-              {isSubscribed ? 'Subscribed!' : 'Subscribe'}
-            </Button>
-          </form>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Button type="submit" className="sm:w-auto">
+                {isSubscribed ? 'Subscribed!' : 'Subscribe'}
+              </Button>
+            </motion.div>
+          </motion.form>
 
           {isSubscribed && (
-            <p className="text-primary mt-4 animate-fade-up">
+            <motion.p 
+              className="text-primary mt-4"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
               Thank you for subscribing! Check your email for confirmation.
-            </p>
+            </motion.p>
           )}
 
           <p className="text-xs text-muted-foreground mt-4">
             We respect your privacy. Unsubscribe at any time.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
+

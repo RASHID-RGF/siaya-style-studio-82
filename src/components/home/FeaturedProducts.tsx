@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ProductCard } from '@/components/product/ProductCard';
 import { featuredProducts } from '@/data/products';
+import { StaggeredGrid, StaggerItem } from '@/components/ui/ScrollAnimations';
 
 export function FeaturedProducts() {
   return (
@@ -25,18 +26,17 @@ export function FeaturedProducts() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-          {featuredProducts.map((product, index) => (
-            <div
-              key={product.id}
-              className={`animate-fade-up stagger-${index + 1}`}
-              style={{ opacity: 0 }}
-            >
-              <ProductCard product={product} />
-            </div>
-          ))}
-        </div>
+        <StaggeredGrid>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            {featuredProducts.map((product, index) => (
+              <StaggerItem key={product.id} direction={index % 2 === 0 ? "up" : "up"}>
+                <ProductCard product={product} />
+              </StaggerItem>
+            ))}
+          </div>
+        </StaggeredGrid>
       </div>
     </section>
   );
 }
+
