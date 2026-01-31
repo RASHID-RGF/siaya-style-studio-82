@@ -1,12 +1,8 @@
-import { signInWithGoogle } from "@/config/auth";
-import { auth } from "@/config/firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { useEffect } from "react";
-import { useState } from "react";
-import { User, Package, Heart, MapPin, Settings, LogOut } from "lucide-react";
+import { User, Package, Heart, MapPin, Settings } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 const tabs = [
   { id: "profile", label: "Profile", icon: User },
@@ -17,21 +13,7 @@ const tabs = [
 ];
 
 const Account = () => {
-<<<<<<< Updated upstream
-  const [activeTab, setActiveTab] = useState('profile');
-  // Google auth removed — no user state here
-  const user = null;
-=======
   const [activeTab, setActiveTab] = useState("profile");
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-
-    return () => unsubscribe();
-  }, []);
->>>>>>> Stashed changes
 
   return (
     <Layout>
@@ -49,15 +31,10 @@ const Account = () => {
                   <User className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-<<<<<<< Updated upstream
-                  <p className="font-medium">Welcome, Guest!</p>
-                  <p className="text-sm text-muted-foreground">Guest User</p>
-=======
                   <p className="font-medium">Welcome!</p>
                   <p className="text-sm text-muted-foreground">
-                    {user ? user.email : "Guest User"}
+                    Guest User
                   </p>
->>>>>>> Stashed changes
                 </div>
               </div>
 
@@ -80,20 +57,6 @@ const Account = () => {
                     </button>
                   );
                 })}
-<<<<<<< Updated upstream
-                {/* No sign-out available — auth removed */}
-=======
-                {user && (
-                  <button
-                    onClick={async () => {
-                      await signOut(auth);
-                    }}
-                    className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-destructive hover:bg-destructive/10 transition-colors"
-                  >
-                    <LogOut className="h-4 w-4" /> Sign Out
-                  </button>
-                )}
->>>>>>> Stashed changes
               </nav>
             </div>
           </div>
@@ -117,33 +80,17 @@ const Account = () => {
                       </div>
                     </div>
                     <p className="text-muted-foreground">
-                      Sign in to manage your profile, track orders, and save
+                      Create an account to manage your profile, track orders, and save
                       your favorites.
                     </p>
-<<<<<<< Updated upstream
-=======
-                    {!user && (
-                      <div className="flex gap-4">
-                        <Button
-                          variant="hero"
-                          size="lg"
-                          onClick={async () => {
-                            try {
-                              await signInWithGoogle();
-                            } catch (e) {
-                              console.error(e);
-                            }
-                          }}
-                        >
-                          Sign In with Google
-                        </Button>
-
-                        <Button variant="outline" size="lg">
-                          Create Account
-                        </Button>
-                      </div>
-                    )}
->>>>>>> Stashed changes
+                    <div className="flex gap-4">
+                      <Button variant="hero" size="lg">
+                        Sign In
+                      </Button>
+                      <Button variant="outline" size="lg">
+                        Create Account
+                      </Button>
+                    </div>
                   </div>
                 </div>
               )}
@@ -238,3 +185,4 @@ const Account = () => {
 };
 
 export default Account;
+
